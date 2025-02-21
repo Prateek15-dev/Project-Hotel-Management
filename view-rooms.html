@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Rooms</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body id="rooms">
+    <header>
+        <div class="logo">Beach Resort - Manage Rooms</div>
+        <a href="dashboard.html" style="color: white; text-decoration: none;">Back to Dashboard</a>
+    </header>
+
+    <a class="add-btn" onclick="openAddRoomModal()">Add New Room</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Room ID</th>
+                <th>Type</th>
+                <th>Price (per night)</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="roomTable">
+            <tr>
+                <td>1</td>
+                <td>Deluxe</td>
+                <td>$200</td>
+                <td>Available</td>
+                <td>
+                    <button class="btn edit-btn" onclick="openEditRoomModal(1)">Edit</button>
+                    <button class="btn delete-btn" onclick="deleteRoom(1)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Add/Edit Room Modal -->
+    <div class="modal" id="roomModal">
+        <h3 id="modalTitle">Add Room</h3>
+        <form onsubmit="saveRoom(event)">
+            <input type="hidden" id="roomId">
+            
+            <!-- Room Type Selection -->
+            <select id="roomType" required onchange="updateRoomCategory()">
+                <option value="">Select Room Type</option>
+                <option value="Single">Single</option>
+                <option value="Double">Double</option>
+                <option value="Family">Family</option>
+                <option value="Presidential">Presidential</option>
+            </select>
+            
+            <!-- Room Category (this will be updated dynamically based on Room Type) -->
+            <select id="roomCategory" required>
+                <option value="">Select Room Category</option>
+            </select>
+    
+            <!-- Room Price -->
+            <input type="number" id="roomPrice" placeholder="Price (per night)" required>
+    
+            <!-- Room Status -->
+            <select id="roomStatus" required>
+                <option value="Available">Available</option>
+                <option value="Booked">Booked</option>
+            </select>
+    
+            <button type="submit" class="modal-btn save-btn">Save</button>
+            <button type="button" class="modal-btn close-btn" onclick="closeModal()">Close</button>
+        </form>
+    </div>
+    
+
+    <script src="index.js" charset="UTF-8"></script>
+</body>
+</html>

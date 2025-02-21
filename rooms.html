@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container-fluid">
+        <!-- Left: Logo -->
+        <a class="navbar-brand logo" href="#">
+            Beach <span>Resort</span>
+        </a>
+
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Centered Navigation Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav nav-center">
+                <li class="nav-item">
+                    <a class="nav-link active fw-bold" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-bold" href="./rooms.html">Rooms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-bold" href="./contact.html">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Right: Profile Section -->
+        <div class="profile-section" onclick="toggleDropdown()">
+            <span id="welcome-text" class="me-2 fw-bold">Welcome!</span>
+            <img src="https://www.pngall.com/wp-content/uploads/5/Profile-Transparent.png" alt="Profile" class="profile-img">
+            <ul class="dropdown-menu" id="dropdown-menu">
+                <li><a href="./login.html" style="text-decoration: none; color: black;">Login</a></li>
+                <li onclick="logout()">Logout</li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="hero-section">
+    <div class="overlay"></div>
+    <div class="content">
+        <h1>Our Rooms</h1>
+        <a href="index.html" class="btn btn-custom">Return Home</a>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <h2 class="text-center">Search Rooms</h2>
+
+    <div class="row my-4">
+        <div class="col-md-4">
+            <label for="roomType" class="form-label">Room Type</label>
+            <select id="roomType" class="form-select">
+                <option value="all">All</option>
+                <option value="single">Single</option>
+                <option value="double">Double</option>
+                <option value="family">Family</option>
+                <option value="presidential">Presidential</option>
+            </select>
+        </div>
+
+        <div class="col-md-4">
+            <label for="priceRange" class="form-label">Started Price: Rs<span id="priceValue">25000</span></label>
+            <input type="range" id="priceRange" class="form-range" min="3500" max="25000" step="500" value="25000">
+        <br>
+        <br>
+        <br>
+        </div>
+
+        <div class="col-md-4">
+            <label class="form-label">Extras</label>
+            <div>
+                <input type="checkbox" id="breakfast"> <label for="breakfast">Breakfast</label>
+            </div>
+            <div>
+                <input type="checkbox" id="pets"> <label for="pets">Pets</label>
+            </div>
+
+        </div>
+    </div>
+
+    
+    
+  
+
+ <div class="row" style="margin: 60px;" >
+        <!-- Room Cards -->
+        <div class="col-md-3 room-card single" data-price="5000" data-breakfast="false" data-pets="false">
+            <div class="price">3500 Rs per night</div>
+            <div class="image-container">
+                <img src="./images/singlestandard.jpg" alt="Single Basic">
+                <button class="book-now-btn" onclick="window.location.href='payment.html'">Book Now</button>
+            </div>
+          
+                 <div class="room-name">Single Basic</div>
+        </div>
+
+        <div class="col-md-3 room-card single" data-price="3500" data-breakfast="true" data-pets="false">
+         <div class="price">5000 Rs per night</div>
+                <div class="image-container">
+                    <img src="./images/singleeconomy.jpeg" alt="Single Economy">
+                    <button class="book-now-btn" onclick="window.location.href='payment.html'">Book Now</button>
+                </div>
+                <div class="room-name">Single Economy</div>
+        </div>
+
+        <div class="col-md-3 room-card single" data-price="6000" data-breakfast="true" data-pets="true">
+            <div class="price">6000 Rs per night</div>
+            <div class="image-container">
+                 <img src="./images/room-2-1690017855919.jpeg" alt="Single Standard">
+                <button class="book-now-btn" onclick="window.location.href='payment.html'">Book Now</button>
+            </div>
+           
+            <div class="room-name">Single Standard</div>
+        </div>
+
+
+        <div class="col-md-3 room-card double" data-price="7000" data-breakfast="false" data-pets="false">
+            <div class="price">7000 Rs per night</div>
+            <div class="image-container">
+                <img src="./images/room-7-1690018371646.jpeg" alt="Double Basic">
+                <button class="book-now-btn" onclick="window.location.href='payment.html'">Book Now</button>
+            </div>
+            
+            <div class="room-name">Double Basic</div>
+        </div>
+
+        <div class="col-md-3 room-card double" data-price="8000" data-breakfast="true" data-pets="false">
+            <div class="price">8000 Rs per night</div>
+            <div class="image-container">
+                <img src="./images/room-5-1690018148636.jpeg" alt="Double Economy">
+                <button class="book-now-btn" onclick="window.location.href='payment.html'">Book Now</button>
+            </div>
+            
+            <div class="room-name">Double Economy</div>
+        </div>
+
+        <div class="col-md-3 room-card double" data-price="9000" data-breakfast="true" data-pets="true">
+            <div class="price">9000 Rs per night</div>
+            <div class="image-container">
+                <img src="./images/room-6-1690018256843.jpeg" alt="Double Standard">
+                <button class="book-now-btn" onclick="window.location.href='payment.html'">Book Now</button>
+            </div>
+            
+            <div class="room-name">Double Standard</div>
+        </div>
+
+        <div class="col-md-3 room-card double" data-price="10000" data-breakfast="true" data-pets="true">
+            <div class="price">10000 Rs per night</div>
+            <div class="image-container">
+                <img src="./images/room-8-1690018442519 (1).jpeg" alt="Double Deluxe">
+                <button class="book-now-btn" onclick="window.location.href='payment.html'">Book Now</button>
+            </div>
+            
+            <div class="room-name">Double Deluxe</div>
+        </div>
+
+        <div class="col-md-3 room-card family" data-price="14000" data-breakfast="false" data-pets="false">
+            <div class="price">11000 Rs per night</div>
+            <div class="image-container">
+                 <img src="./images/room-10-1690019376942.jpeg" alt="Family Basic">
+                <button class="book-now-btn" onclick="window.location.href='payment.html'">Book Now</button>
+            </div>
+           
+            <div class="room-name">Family Basic</div>
+        </div>
+
+        <div class="col-md-3 room-card family" data-price="11000" data-breakfast="true" data-pets="false">
+            <div class="price">14000 Rs per night</div>
+            <div class="image-container">
+                <img src="./images/room-9-1690019292113.jpeg" alt="Family Economy">
+                <button class="book-now-btn" onclick="window.location.href='payment.html'">Book Now</button>
+            </div>
+            
+            <div class="room-name">Family Economy</div>
+        </div>
+
+
+        <div class="col-md-3 room-card family" data-price="17000" data-breakfast="true" data-pets="true">
+            <div class="price">17000 Rs per night</div>
+            <div class="image-container">
+                <img src="./images/room-12-1690019549656.jpeg" alt="Family Standard">
+                <button class="book-now-btn" onclick="window.location.href='payment.html'">Book Now</button>
+            </div>
+            
+            <div class="room-name">Family Standard</div>
+        </div>
+
+        <div class="col-md-3 room-card family" data-price="21000" data-breakfast="true" data-pets="true">
+            <div class="price">21000 Rs per night</div>
+            <div class="image-container">
+                <img src="./images/room-11-1690019461644.jpeg" alt="Family Deluxe">
+                <button class="book-now-btn" onclick="window.location.href='payment.html'">Book Now</button>
+            </div>
+            
+            <div class="room-name">Family Deluxe</div>
+        </div>
+
+        <div class="col-md-3 room-card presidential" data-price="25000" data-breakfast="true" data-pets="true">
+            <div class="price">25000 Rs per night</div>
+            <div class="image-container">
+                <img src="./images/presidentialdeluxe.jpeg" alt="Presidential Deluxe">
+                <button class="book-now-btn" onclick="window.location.href='payment.html'">Book Now</button>
+            </div>
+            
+            <div class="room-name">Presidential Deluxe</div>
+        </div>
+    </div>
+</div>
+
+<script src="index.js" charset="UTF-8"></script>
+
+<footer class="footer">
+    <div class="container">
+        <p class="mb-1">Beach Resort | Hotel Room Booking System</p>
+        <p class="mb-0">&copy;2025 Beach Resort — Under Team 5</p>
+    </div>
+</footer>
+
+
+</body>
+</html>

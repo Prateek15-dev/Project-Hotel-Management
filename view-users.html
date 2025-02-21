@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body id="users">
+    <header>
+        <div class="logo">Beach Resort - Manage Users</div>
+        <a href="dashboard.html" style="color: white; text-decoration: none;">Back to Dashboard</a>
+    </header>
+
+    <a class="add-btn" onclick="openAddUserModal()">Add New User</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="userTable">
+            <tr>
+                <td>1</td>
+                <td>John Doe</td>
+                <td>johndoe@example.com</td>
+                <td>
+                    <button class="btn edit-btn" onclick="openEditUserModal(1)">Edit</button>
+                    <button class="btn delete-btn" onclick="deleteUser(1)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Add/Edit User Modal -->
+    <div class="modal" id="userModal">
+        <h3 id="modalTitle">Add User</h3>
+        <form onsubmit="saveUser(event)">
+            <input type="hidden" id="userId">
+            <input type="text" id="userName" placeholder="Enter Name" required>
+            <input type="email" id="userEmail" placeholder="Enter Email" required>
+            <button type="submit" class="modal-btn save-btn">Save</button>
+            <button type="button" class="modal-btn close-btn" onclick="closeModal()">Close</button>
+        </form>
+    </div>
+
+    <script src="index.js" charset="UTF-8"></script>
+</body>
+</html>

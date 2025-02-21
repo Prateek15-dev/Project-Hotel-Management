@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beach Resort Login</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="login">
+    <div class="header">Welcome to Beach Resort</div>
+
+    <div class="login-container" id="login-container">
+        <h2>Admin and User Login</h2>
+        <input type="text" id="username" placeholder="Enter your username" required>
+        <input type="password" id="password" placeholder="Enter your password" required>
+        <button onclick="login()">Sign In</button>
+        <p>Don't have an account? <a href="#" onclick="showSignUp()">Sign Up</a></p>
+    </div>
+
+    <div class="login-container" id="signup-container" style="display:none;">
+        <h2>Sign Up</h2>
+        <input type="text" id="new-username" placeholder="Choose a username" required>
+        <input type="password" id="new-password" placeholder="Choose a password" required>
+        <button onclick="signUp()">Sign Up</button>
+        <p>Already have an account? <a href="#" onclick="showLogin()">Sign In</a></p>
+    </div>
+
+    <div class="footer">&copy; 2025 Beach Resort. All Rights Reserved.</div>
+
+    <script src="index.js" charset="UTF-8"></script>
+</body>
+</html>
+
